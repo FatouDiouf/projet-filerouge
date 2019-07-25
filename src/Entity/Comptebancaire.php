@@ -24,14 +24,9 @@ class Comptebancaire
     private $numerocompte;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
     private $montantcompte;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Adminsimple", mappedBy="idCompte", cascade={"persist", "remove"})
-     */
-    private $adminsimple;
 
     public function getId(): ?int
     {
@@ -50,31 +45,14 @@ class Comptebancaire
         return $this;
     }
 
-    public function getMontantcompte(): ?string
+    public function getMontantcompte(): ?int
     {
         return $this->montantcompte;
     }
 
-    public function setMontantcompte(string $montantcompte): self
+    public function setMontantcompte(int $montantcompte): self
     {
         $this->montantcompte = $montantcompte;
-
-        return $this;
-    }
-
-    public function getAdminsimple(): ?Adminsimple
-    {
-        return $this->adminsimple;
-    }
-
-    public function setAdminsimple(Adminsimple $adminsimple): self
-    {
-        $this->adminsimple = $adminsimple;
-
-        // set the owning side of the relation if necessary
-        if ($this !== $adminsimple->getIdCompte()) {
-            $adminsimple->setIdCompte($this);
-        }
 
         return $this;
     }

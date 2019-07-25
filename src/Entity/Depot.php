@@ -21,38 +21,38 @@ class Depot
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $numero;
+    private $montant;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
-    private $montant;
+    private $datedepot;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNumero(): ?string
-    {
-        return $this->numero;
-    }
-
-    public function setNumero(string $numero): self
-    {
-        $this->numero = $numero;
-
-        return $this;
-    }
-
-    public function getMontant(): ?int
+    public function getMontant(): ?string
     {
         return $this->montant;
     }
 
-    public function setMontant(int $montant): self
+    public function setMontant(string $montant): self
     {
         $this->montant = $montant;
+
+        return $this;
+    }
+
+    public function getDatedepot(): ?\DateTimeInterface
+    {
+        return $this->datedepot;
+    }
+
+    public function setDatedepot(\DateTimeInterface $datedepot): self
+    {
+        $this->datedepot = $datedepot;
 
         return $this;
     }
